@@ -8,6 +8,9 @@ const App = () => {
   const [isAddMode, setIsAddMode] = useState(false);
 
   const addGoalHandler = goal => {
+    if (goal.length === 0) {
+      return;
+    }
     setCourseGoals(courseGoals => [
       ...courseGoals,
       { id: Math.random().toString(), value: goal }

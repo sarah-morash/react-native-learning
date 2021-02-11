@@ -1,15 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Text, View, StyleSheet, Button, Alert } from "react-native";
+import { View, StyleSheet, Button, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import Card from "../components/Card";
 import MainButton from "../components/MainButton";
 import NumberContainer from "../components/NumberContainer";
-import { ScrollView } from "react-native";
 import BodyText from "../components/BodyText";
 import TitleText from "../components/TitleText";
 import { FlatList } from "react-native";
-import { render } from "react-dom";
+import { Dimensions } from "react-native";
 
 const generateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min);
@@ -118,7 +117,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     width: 400,
-    maxWidth: "90%"
+    maxWidth: "90%",
+    marginTop: Dimensions.get("window").height > 600 ? 30 : 5
   },
   list: {
     flexGrow: 1,
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     flex: 1,
-    width: "60%"
+    width: Dimensions.get("window").width > 350 ? "60%" : "80%"
     // maxWidth: "90%",
     // flexGrow: 1,
     // alignItems: "center",

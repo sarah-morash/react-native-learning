@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Alert } from "react-native";
 import {
   Button,
   StyleSheet,
-  Text,
   View,
   TouchableWithoutFeedback,
-  Keyboard
+  Keyboard,
+  Alert,
+  Dimensions
 } from "react-native";
 import BodyText from "../components/BodyText";
 import Card from "../components/Card";
@@ -104,14 +104,15 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     paddingBottom: 10,
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: "center"
   },
   title: {
     fontSize: 20,
-    marginVertical: 10,
+    marginVertical: 5,
     fontFamily: "open-sans-bold"
   },
-  inputContainer: { width: 300, maxWidth: "80%", alignItems: "center" },
+  inputContainer: { width: "80%", minWidth: 200, alignItems: "center" },
   buttonContainer: {
     flexDirection: "row",
     width: "100%",
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15
   },
   button: {
-    width: 100
+    width: Dimensions.get("window").width / 4
   },
   input: {
     width: 50,

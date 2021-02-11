@@ -1,4 +1,5 @@
 import React from "react";
+import { Dimensions } from "react-native";
 import { Text } from "react-native";
 import { View, Button, StyleSheet, Image } from "react-native";
 
@@ -30,8 +31,8 @@ const GameOverScreen = ({ rounds, userChoice, onRestart }) => {
           rounds to guess the number{" "}
           <Text style={styles.highlight}>{userChoice}</Text>
         </BodyText>
-        <MainButton onPress={onRestart}>NEW GAME</MainButton>
       </View>
+      <MainButton onPress={onRestart}>NEW GAME</MainButton>
     </View>
   );
 };
@@ -50,13 +51,13 @@ const styles = StyleSheet.create({
     height: "100%"
   },
   imageContainer: {
-    width: 300,
-    height: 300,
-    borderRadius: 150,
+    width: Dimensions.get("window").width * 0.5,
+    height: Dimensions.get("window").width * 0.5,
+    borderRadius: Dimensions.get("window").width / 2,
     borderWidth: 3,
     borderColor: "black",
     overflow: "hidden",
-    marginVertical: 30
+    marginVertical: Dimensions.get("window").height / 60
   },
   highlight: {
     color: Colors.primary,
@@ -64,10 +65,10 @@ const styles = StyleSheet.create({
   },
   resultText: {
     textAlign: "center",
-    fontSize: 30
+    fontSize: Dimensions.get("window").height / 40
   },
   resultContainer: {
     marginHorizontal: 30,
-    marginVertical: 15
+    marginVertical: Dimensions.get("window").height / 40
   }
 });
